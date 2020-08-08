@@ -8,48 +8,30 @@ class Solution
 public:
   int strStr(string haystack, string needle)
   {
-    int pos = -1;
+    if (needle == "")
+      return 0;
+    if (haystack == "")
+      return -1;
     int hn = haystack.size();
     int nn = needle.size();
-    // if (haystack == "")
-    // {
-    //   pos = 0;
-    // }
-    if (needle == "")
+    for (int i = 0; i <= hn - nn; i++)
     {
-      pos = 0;
-    }
-
-    for (int i = 0; i < hn; i++)
-    {
-      int flag = 0;
-      for (int j = 0; j < nn; j++)
+      int j = 0;
+      while (haystack[i + j] == needle[j] && j < nn)
       {
-        if ((i + j) < hn && haystack[i + j] == needle[j])
-        {
-        }
-        else
-        {
-          break;
-        }
-        if (j == (nn - 1))
-        {
-          flag = 1;
-        }
+        j++;
       }
-      if (flag == 1)
+      if (j == nn)
       {
         return i;
-        pos = i;
       }
+      return -1;
     }
-    return pos;
-  }
-};
+  };
 
-int main()
-{
-  Solution solu;
-  cout << solu.strStr("aaaaa", "bba") << endl;
-  cout << solu.strStr("hello", "ll") << endl;
-}
+  int main()
+  {
+    Solution solu;
+    cout << solu.strStr("aaaaa", "bba") << endl;
+    cout << solu.strStr("hello", "ll") << endl;
+  }
