@@ -25,13 +25,14 @@ public:
       {
         return i;
       }
-      return -1;
     }
-  };
-
-  int main()
-  {
-    Solution solu;
-    cout << solu.strStr("aaaaa", "bba") << endl;
-    cout << solu.strStr("hello", "ll") << endl;
+    return -1;
   }
+};
+
+int main()
+{
+  Solution solu;
+  cout << solu.strStr("aaaaa", "bba") << endl;
+  cout << solu.strStr("hello", "ll") << endl;
+}
